@@ -8,7 +8,6 @@ build = "build/main.rs"
 anyhow = "1.0.76"
 bindgen = "0.69.1"
 cc = { version = "1.0.83", features = ["parallel"] }
-libjxl-src = "0.7.6"
 pkg-config = "0.3.28"
 
 [dependencies]

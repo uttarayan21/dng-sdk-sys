@@ -83,22 +83,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "cmake"
-version = "0.1.50"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a31c789563b815f77f4250caee12365734369f942439b7defd71e18a48197130"
-dependencies = [
- "cc",
-]
-
-[[package]]
 name = "dng-sdk-sys"
 version = "0.1.0"
 dependencies = [
  "anyhow",
  "bindgen",
  "cc",
- "libjxl-src",
  "libz-sys",
  "pkg-config",
  "xmp_toolkit",
@@ -189,15 +179,6 @@ name = "libc"
 version = "0.2.151"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "302d7ab3130588088d277783b1e2d2e10c9e9e4a16dd9050e6ec93fb3e7048f4"
-
-[[package]]
-name = "libjxl-src"
-version = "0.7.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ba6e9340063b5b46e97791f9a82db58d0d1d112de4561dc7534074838d311f75"
-dependencies = [
- "cmake",
-]
 
 [[package]]
 name = "libloading"

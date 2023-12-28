@@ -102,18 +102,50 @@ pub fn build() -> anyhow::Result<()> {
     build.files(files.iter().map(|f| dng_sdk.join(f)));
     build.file("dng/reader.cpp");
     build.define(platform.define(), None);
-    // build.define("qDNGUseXMP", None);
-    // build.define("qDNGSupportJXL", None);
+    // build.define("AdobePrivate", "1");
+    // build.define("qDNGUseXMP", "0");
+    // build.define("qDNGSupportJXL", "0");
+    build
+        .flag_if_supported("-Wno-deprecated")
+        .flag_if_supported("-Wno-deprecated-declarations")
+        .flag_if_supported("-Wno-missing-field-initializers")
+        .flag_if_supported("-Wno-reorder")
+        .flag_if_supported("-Wno-unused-function")
+        .flag_if_supported("-Wno-unused-parameter")
+        .flag_if_supported("-Wno-unused-variable")
+        .flag_if_supported("-Wnon-virtual-dtor")
+        .flag_if_supported("-Woverloaded-virtual");
     build.define("TXMP_STRING_TYPE", "std::string");
     build.define("XML_STATIC", "1");
     build.define("XMP_StaticBuild", "1");
     build.define("HAVE_EXPAT_CONFIG_H", "1");
     build.define("qDNGXMPDocOps", "0");
+    match platform {
+        Platform::Mac => {
+            build.define("MAC_ENV", None);
+        }
+        Platform::IPhone => {
+            build.define("IOS_ENV", None);
+        }
+        Platform::Win => {
+            build.define("WIN_ENV", None);
+        }
+        Platform::Linux => {
+            build.define("UNIX_ENV", None);
+        }
+        Platform::Android => {
+            build.define("ANDROID_ENV", None);
+        }
+        Platform::Web => {
+            build.define("WEB_ENV", None);
+        }
+    }
     build.std("c++11");
     build.static_flag(true);
     build.static_crt(true);
     build.compile("dng");
     println!("cargo:rustc-link-lib=static=dng");
+    println!("cargo:rustc-link-lib=static=xmp");
 
     Ok(())
 }
