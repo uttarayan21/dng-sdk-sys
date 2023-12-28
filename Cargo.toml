@@ -12,7 +12,6 @@ libjxl-src = "0.7.6"
 pkg-config = "0.3.28"
 
 [dependencies]
-autocxx = "0.26.0"
+xmp_toolkit = { features = ["crt_static"], path = "xmp-toolkit-rs" }
 libz-sys = { version = "1.1.12", features = ["static"] }
-xmp_toolkit = { version = "1.6.0", features = ["crt_static"] }
 

@@ -78,12 +78,11 @@ pub fn build() -> anyhow::Result<()> {
     let folder = std::env::var("CARGO_MANIFEST_DIR").unwrap();
     let vendor = std::path::Path::new(&folder).join("vendor");
     let dng_sdk = vendor.join("dng_sdk");
+    let xmp_include =
+        std::env::var("DEP_XMP_TOOLKIT_INCLUDE").expect("Failed to get includes from xmp");
+
     let includes = [
-        vendor
-            .join("xmp")
-            .join("toolkit")
-            .join("public")
-            .join("include"),
+        xmp_include.into(),
         vendor
             .join("libjxl")
             .join("libjxl")
@@ -105,7 +104,11 @@ pub fn build() -> anyhow::Result<()> {
     build.define(platform.define(), None);
     // build.define("qDNGUseXMP", None);
     // build.define("qDNGSupportJXL", None);
-    build.std("c++20");
+    build.define("TXMP_STRING_TYPE", "std::string");
+    build.define("XML_STATIC", "1");
+    build.define("XMP_StaticBuild", "1");
+    build.define("HAVE_EXPAT_CONFIG_H", "1");
+    build.std("c++11");
     build.static_flag(true);
     build.static_crt(true);
     build.compile("dng");
