@@ -108,6 +108,7 @@ pub fn build() -> anyhow::Result<()> {
     build.define("XML_STATIC", "1");
     build.define("XMP_StaticBuild", "1");
     build.define("HAVE_EXPAT_CONFIG_H", "1");
+    build.define("qDNGXMPDocOps", "0");
     build.std("c++11");
     build.static_flag(true);
     build.static_crt(true);
