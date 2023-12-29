@@ -146,6 +146,10 @@ pub fn build() -> anyhow::Result<()> {
     build.compile("dng");
     println!("cargo:rustc-link-lib=static=dng");
     println!("cargo:rustc-link-lib=static=xmp");
+    if let Platform::Mac = platform {
+        println!("cargo:rustc-link-lib=framework=Carbon");
+        println!("cargo:rustc-link-lib=framework=Security");
+    }
 
     Ok(())
 }
