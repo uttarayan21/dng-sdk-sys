@@ -2,7 +2,8 @@
 name = "dng-sdk-sys"
 version = "0.1.0"
 edition = "2021"
-build = "build/main.rs"
+build = "build.rs"
+links = "dng_sdk"
 
 [build-dependencies]
 anyhow = "1.0.76"
@@ -13,4 +14,5 @@ pkg-config = "0.3.28"
 [dependencies]
 xmp_toolkit = { features = ["crt_static"], git = "https://github.com/uttarayan21/xmp-toolkit-rs" }
 libz-sys = { version = "1.1.12", features = ["static"] }
+cxx = "1.0.111"
 
