@@ -11,6 +11,6 @@ cc = { version = "1.0.83", features = ["parallel"] }
 pkg-config = "0.3.28"
 
 [dependencies]
-xmp_toolkit = { features = ["crt_static"], path = "xmp-toolkit-rs" }
+xmp_toolkit = { features = ["crt_static"], git = "https://github.com/uttarayan21/xmp-toolkit-rs" }
 libz-sys = { version = "1.1.12", features = ["static"] }
 

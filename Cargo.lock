@@ -539,6 +539,7 @@ dependencies = [
 [[package]]
 name = "xmp_toolkit"
 version = "1.6.0"
+source = "git+https://github.com/uttarayan21/xmp-toolkit-rs#587238344b14f502153417c7c4637ca885724dc9"
 dependencies = [
  "cc",
  "fs_extra",
