@@ -120,7 +120,6 @@ mod dng_sdk {
         build.cpp(true);
         build.includes(includes);
         build.files(files.iter().map(|f| dng_sdk.join(f)));
-        build.file("dng/reader.cpp");
         build.define(platform.define(), None);
         // build.define("AdobePrivate", "1");
         // build.define("qDNGUseXMP", "0");
