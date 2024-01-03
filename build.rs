@@ -8,12 +8,6 @@ pub fn main() -> anyhow::Result<()> {
         .statik(true)
         .probe("libjxl")
         .unwrap();
-    pkg_config::Config::new()
-        .statik(true)
-        .probe("zlib")
-        .unwrap();
-    // libjxl_src::build();
-    // libjxl_src::print_cargo_link();
     Ok(())
 }
 
